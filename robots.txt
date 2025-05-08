@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://seremprendeads.github.io/plantilla-spa/sitemap.xml
