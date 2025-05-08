@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serene Spa & Wellness Center | Tu Oasis de Tranquilidad</title>
+  <meta name="description" content="Descubre el mejor spa en la ciudad con tratamientos personalizados, masajes relajantes y servicios holísticos para renovar tu cuerpo y mente.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- Mejora de rendimiento: preconexión al CDN -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Font Awesome desde CDN (o local si prefieres) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <!-- CSS compilado y minificado de Tailwind (con versión para cache busting) -->
+  <link rel="stylesheet" href="./dist/output.css?v=1.0">
+</head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .testimonio {
+  transition: opacity 0.5s ease;
+}
+
+     .slider {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: auto;
+        }
+
+        .slides {
+            display: flex;
+            animation: slideAnimation 10s infinite; /* Cambia el tiempo según sea necesario */
+        }
+
+        .slide {
+            min-width: 100%; /* Cada slide ocupa el 100% del contenedor */
+            box-sizing: border-box;
+            padding: 20px; /* Espaciado interno */
+        }
+
+        @keyframes slideAnimation {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(0); }
+            25% { transform: translateX(-100%); }
+            45% { transform: translateX(-100%); }
+            50% { transform: translateX(-200%); }
+            70% { transform: translateX(-200%); }
+            75% { transform: translateX(-300%); }
+            100% { transform: translateX(0); }
+        }
+
+.calendar-icon {
+  font-size: 1.8rem;
+}
+
+.testimonial-card {
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Custom animation for fade-in */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .bg-overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-gray-800">
+    <!-- Navigation -->
+    <div x-data="{ mobileMenuOpen: false }" class="relative z-50">
+        <nav class="bg-white bg-opacity-95 shadow-md fixed w-full top-0 z-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-20">
+                    <div class="flex items-center">
+                        <div class="text-2xl font-bold text-teal-700">
+                            <a href="#inicio" class="flex items-center">
+                                <span class="text-3xl font-serif">
+                                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1746410381/logo-spa_y7aza1.png" alt="logo" class="h-12 w-12">
+                                </span>
+                                <span class="ml-1 text-sm uppercase tracking-wider mt-1 text-pink-400">Spa & Wellness</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#inicio" class="text-gray-600 hover:text-teal-700 px-3 py-2 text-sm font-medium transition duration-300">Inicio</a>
+                        <a href="#nosotros" class="text-gray-600 hover:text-teal-700 px-3 py-2 text-sm font-medium transition duration-300">Nosotros</a>
+                        <a href="#servicios" class="text-gray-600 hover:text-teal-700 px-3 py-2 text-sm font-medium transition duration-300">Servicios</a>
+                        <a href="#trabajos" class="text-gray-600 hover:text-teal-700 px-3 py-2 text-sm font-medium transition duration-300">Trabajos</a>
+                        <a href="#galeria" class="text-gray-600 hover:text-teal-700 px-3 py-2 text-sm font-medium transition duration-300">Galería</a>
+                        <a href="#testimonios" class="text-gray-600 hover:text-teal-700 px-3 py-2 text-sm font-medium transition duration-300">Testimonios</a>
+                        <a href="#faq" class="text-gray-600 hover:text-teal-700 px-3 py-2 text-sm font-medium transition duration-300">FAQ</a>
+                        <a href="#contacto" class="bg-pink-300 text-white font-bold px-3
+                         py-2 rounded-full hover:bg-rose-300 transition-colors duration-300 inline-flex items-center animate-pulse">
+                     RESERVAR TURNO
+                    <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="ml-2 h-6 w-6"/>
+                    </a>
+                    </div>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden flex items-center">
+                        <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-600 hover:text-teal-700 focus:outline-none">
+                            <svg class="h-6 w-6" x-show="!mobileMenuOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                            <svg class="h-6 w-6" x-show="mobileMenuOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display: none;">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div x-show="mobileMenuOpen" class="md:hidden bg-white" style="display: none;">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="#inicio" @click="mobileMenuOpen = false" class="block text-gray-600 hover:text-teal-700 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Inicio</a>
+                    <a href="#nosotros" @click="mobileMenuOpen = false" class="block text-gray-600 hover:text-teal-700 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Nosotros</a>
+                    <a href="#servicios" @click="mobileMenuOpen = false" class="block text-gray-600 hover:text-teal-700 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Servicios</a>
+                    <a href="#trabajos" @click="mobileMenuOpen = false" class="block text-gray-600 hover:text-teal-700 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Trabajos</a>
+                    <a href="#galeria" @click="mobileMenuOpen = false" class="block text-gray-600 hover:text-teal-700 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Galería</a>
+                    <a href="#testimonios" @click="mobileMenuOpen = false" class="block text-gray-600 hover:text-teal-700 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">Testimonios</a>
+                    <a href="#faq" @click="mobileMenuOpen = false" class="block text-gray-600 hover:text-teal-700 hover:bg-gray-50 px-3 py-2 rounded-md text-base font-medium">FAQ</a>
+                                          <a href="#contacto" class="bg-pink-300 text-white font-bold px-3
+                         py-2 rounded-full hover:bg-rose-300 transition-colors duration-300 inline-flex items-center animate-pulse">
+                     RESERVAR TURNO
+                    <img src="https://cdn.simpleicons.org/Whatsapp/ffffff" alt="WhatsApp" class="ml-2 h-6 w-6"/>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+   <!-- Hero Section -->
+<section id="inicio" class="relative pt-20">
+  <div class="h-screen bg-cover bg-center bg-fixed flex items-center" style="background-image: url('https://res.cloudinary.com/dliredzt9/image/upload/v1745614396/spa-background_ypuzla.jpg');">
+    <div class="absolute inset-0 bg-black opacity-40"></div>
+    <div class="container mx-auto px-6 relative">
+      <div class="max-w-lg animate-fade-in">
+        <h1 class="text-5xl md:text-6xl font-bold text-white leading-tight mb-4">
+          Tu santuario de bienestar y relajación
+        </h1>
+        <p class="text-xl text-white mb-8">
+          Descubre una experiencia holística que transforma cuerpo, mente y espíritu con nuestros tratamientos exclusivos.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#servicios" class="bg-pink-300 hover:bg-teal-700 text-white font-medium py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+            Explorar servicios
+          </a>
+          <a href="#contacto" class="bg-white hover:bg-gray-100 text-teal-800 font-medium py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+            Reservar ahora
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+   <!-- Nosotros Section -->
+<section id="nosotros" class="py-20 bg-pink-50">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+            <span class="text-pink-400 font-medium">CONÓCENOS</span>
+            <h2 class="text-4xl font-bold mt-2 mb-4">Sobre Nosotros</h2>
+            <div class="w-16 h-1 bg-pink-300 mx-auto"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <!-- Texto -->
+            <div class="space-y-6">
+                <h3 class="text-2xl font-semibold">Un oasis de tranquilidad en el corazón de la ciudad</h3>
+                <p class="text-gray-600">En Serene Spa & Wellness, creamos experiencias de bienestar transformadoras diseñadas para nutrir el cuerpo, calmar la mente y revitalizar el espíritu. Nuestro enfoque holístico combina técnicas ancestrales con innovaciones modernas para ofrecer tratamientos únicos y personalizados.</p>
+                <p class="text-gray-600">Fundado en 2010 por terapeutas apasionados, hemos evolucionado hasta convertirnos en un destino de referencia para quienes buscan escapar del estrés cotidiano y reconectar consigo mismos.</p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <div class="flex items-center">
+                        <div class="mr-4 bg-pink-200 p-3 rounded-full">
+                            <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Productos Orgánicos</h4>
+                            <p class="text-gray-500 text-sm">Usamos solo ingredientes naturales</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="mr-4 bg-pink-200 p-3 rounded-full">
+                            <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">Terapeutas Expertos</h4>
+                            <p class="text-gray-500 text-sm">Profesionales certificados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744936962/nosotros1-spa_lzyrfl.jpg" alt="Experiencia de spa" class="rounded-lg shadow-lg h-full object-cover">
+                </div>
+                <div>
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744936963/nosotros2-spa_al2nsr.jpg" alt="Tratamientos de spa" class="rounded-lg shadow-lg h-full object-cover">
+                </div>
+                <div>
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744937032/fondo-hero-spa_bfrxto.jpg" alt="Masaje relajante" class="rounded-lg shadow-lg h-full object-cover">
+                </div>
+                <div>
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744937006/fondo-servicios-spa_rv9i6x.jpg" alt="Ambiente de spa" class="rounded-lg shadow-lg h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-pink-400 font-medium">NUESTROS SERVICIOS</span>
+                <h2 class="text-4xl font-bold mt-2 mb-4">Experiencias de Bienestar</h2>
+                <div class="w-16 h-1 bg-pink-300 mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-gray-600">Descubre nuestra gama completa de tratamientos exclusivos diseñados para rejuvenecer tu cuerpo y revitalizar tu espíritu.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Servicio 1 -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all">
+                    <div class="p-6">
+                        <div class="flex justify-center mb-4">
+                            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744936882/masages_lmoddr.png" alt="Masajes terapéuticos" class="h-12">
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-3">Masajes Terapéuticos</h3>
+                        <p class="text-gray-600 text-center">Nuestros masajes personalizados combinan técnicas ancestrales y modernas para aliviar tensiones, mejorar la circulación y restaurar el equilibrio energético.</p>
+                        <div class="mt-6 text-center">
+                            <a href="#contacto" class="text-pink-300 hover:text-teal-800 font-medium inline-flex items-center">
+                                Reservar ahora
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 2 -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all">
+                    <div class="p-6">
+                        <div class="flex justify-center mb-4">
+                            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744936878/body-trateamento_vcmjlt.png" alt="Tratamientos corporales" class="h-12">
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-3">Tratamientos Corporales</h3>
+                        <p class="text-gray-600 text-center">Rejuvenece tu piel y revitaliza tu cuerpo con nuestros tratamientos exclusivos que incluyen exfoliaciones, envolturas y rituales hidratantes.</p>
+                        <div class="mt-6 text-center">
+                            <a href="#contacto" class="text-pink-300 hover:text-teal-800 font-medium inline-flex items-center">
+                                Reservar ahora
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 3 -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all">
+                    <div class="p-6">
+                        <div class="flex justify-center mb-4">
+                            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744936878/Aromaterapia_y5frek.png" alt="Aromaterapia" class="h-12">
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-3">Aromaterapia</h3>
+                        <p class="text-gray-600 text-center">Experimenta el poder curativo de los aceites esenciales que estimulan los sentidos, promueven la relajación y equilibran las emociones.</p>
+                        <div class="mt-6 text-center">
+                            <a href="#contacto" class="text-pink-300 hover:text-teal-800 font-medium inline-flex items-center">
+                                Reservar ahora
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 4 -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all">
+                    <div class="p-6">
+                        <div class="flex justify-center mb-4">
+                            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744936883/Terapia_del_t%C3%A9_a3x8xx.png" alt="Terapia del té" class="h-12">
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-3">Terapia del Té</h3>
+                        <p class="text-gray-600 text-center">Disfruta de rituales ancestrales donde las propiedades del té se combinan con técnicas de relajación para una experiencia de bienestar integral.</p>
+                        <div class="mt-6 text-center">
+                            <a href="#contacto" class="text-pink-300 hover:text-teal-800 font-medium inline-flex items-center">
+                                Reservar ahora
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 5 -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all">
+                    <div class="p-6">
+                        <div class="flex justify-center mb-4">
+                            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744936884/Toques_finales_dww2m5.png" alt="Toques finales" class="h-12">
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-3">Toques Finales</h3>
+                        <p class="text-gray-600 text-center">Completa tu experiencia de bienestar con manicuras, pedicuras y servicios de belleza que realzan tu belleza natural.</p>
+                        <div class="mt-6 text-center">
+                            <a href="#contacto" class="text-pink-300 hover:text-teal-800 font-medium inline-flex items-center">
+                                Reservar ahora
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 6 -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all">
+                    <div class="p-6">
+                        <div class="flex justify-center mb-4">
+                            <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744936884/waxing_hwxupj.png" alt="Depilación" class="h-12">
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-3">Servicios de Depilación</h3>
+                        <p class="text-gray-600 text-center">Técnicas avanzadas y productos de calidad que garantizan resultados precisos con el máximo confort y cuidado para tu piel.</p>
+                        <div class="mt-6 text-center">
+                            <a href="#contacto" class="text-pink-300 hover:text-teal-800 font-medium inline-flex items-center">
+                                Reservar ahora
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner 1 -->
+    <section class="relative">
+        <div class="bg-cover bg-center bg-fixed py-24" style="background-image: url('https://res.cloudinary.com/dliredzt9/image/upload/v1745078350/movil-spa_xyi7tp.jpg');">
+            <div class="absolute inset-0 bg-pink-400 opacity-70"></div>
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">"La belleza exterior comienza con el bienestar interior"</h2>
+                <p class="text-xl text-white opacity-90 max-w-2xl mx-auto">Dedica tiempo a nutrir tu cuerpo y mente, y verás florecer tu verdadera esencia.</p>
+            </div>
+        </div>
+    </section>
+
+ <!-- Galería Section -->
+<section id="galeria" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-pink-400 font-medium">NUESTRA GALERÍA</span>
+                <h2 class="text-4xl font-bold mt-2 mb-4">Momentos de Serenidad</h2>
+                <div class="w-16 h-1 bg-pink-300 mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-gray-600">Explora nuestras instalaciones y descubre los espacios diseñados para ofrecerte la máxima relajación y bienestar.</p>
+            </div>
+
+    <div class="flex flex-wrap -m-4">
+      <div class="lg:w-1/3 sm:w-1/2 p-4">
+        <div class="flex relative">
+          <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="https://res.cloudinary.com/dliredzt9/image/upload/v1746727533/arreglo-de-diseno-de-interiores-de-la-casa_gdjqcx.jpg">
+          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+            <span class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Spa & Wellness</span>
+            <h2 class="title-font text-lg font-medium text-gray-900 mb-3">Masajes Terapéuticos</h2>
+            <p class="leading-relaxed">Nuestros masajes personalizados combinan técnicas ancestrales y modernas para aliviar tensiones, mejorar la circulación y restaurar el equilibrio energético.</p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:w-1/3 sm:w-1/2 p-4">
+        <div class="flex relative">
+          <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="https://res.cloudinary.com/dliredzt9/image/upload/v1746727534/mujer-joven-revisando-el-agua-antes-de-tomar-un-bano_rhqerr.jpg">
+          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+            <span class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Spa & Wellness</span>
+            <h2 class="title-font text-lg font-medium text-gray-900 mb-3">Tratamientos Corporales</h2>
+            <p class="leading-relaxed">
+                Rejuvenece tu piel y revitaliza tu cuerpo con nuestros tratamientos exclusivos que incluyen exfoliaciones, envolturas y rituales hidratantes.</p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:w-1/3 sm:w-1/2 p-4">
+        <div class="flex relative">
+          <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="https://res.cloudinary.com/dliredzt9/image/upload/v1746727535/composicion-de-spa-con-velas-y-vista-superior-de-toallas_iomu5j.jpg">
+          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+            <span class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Spa & Wellness</span>
+            <h2 class="title-font text-lg font-medium text-gray-900 mb-3">Aromaterapia</h2>
+            <p class="leading-relaxed">
+                Experimenta el poder curativo de los aceites esenciales que estimulan los sentidos, promueven la relajación y equilibran las emociones.</p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:w-1/3 sm:w-1/2 p-4">
+        <div class="flex relative">
+          <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="https://res.cloudinary.com/dliredzt9/image/upload/v1746727535/bandeja-con-tres-tarros-de-aceite_x14vy8.jpg">
+          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+            <span class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Spa & Wellness</span>
+            <h2 class="title-font text-lg font-medium text-gray-900 mb-3">Terapia del Té</h2>
+            <p class="leading-relaxed">Disfruta de rituales ancestrales donde las propiedades del té se combinan con técnicas de relajación para una experiencia de bienestar integral.</p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:w-1/3 sm:w-1/2 p-4">
+        <div class="flex relative">
+          <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="https://res.cloudinary.com/dliredzt9/image/upload/v1746728370/sillon-y-sofa_rsvymt.jpg">
+          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+            <span class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Spa & Wellness</span>
+            <h2 class="title-font text-lg font-medium text-gray-900 mb-3">Toques Finales</h2>
+            <p class="leading-relaxed">
+                Completa tu experiencia de bienestar con manicuras, pedicuras y servicios de belleza que realzan tu belleza natural.</p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:w-1/3 sm:w-1/2 p-4">
+        <div class="flex relative">
+          <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="https://res.cloudinary.com/dliredzt9/image/upload/v1746728556/articulos-de-spa-con-orquideas_iosjpv.jpg">
+          <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
+            <span class="tracking-widest text-sm title-font font-medium text-indigo-500 mb-1">Spa & Wellness</span>
+            <h2 class="title-font text-lg font-medium text-gray-900 mb-3">Servicios de Depilación</h2>
+            <p class="leading-relaxed">
+                Técnicas avanzadas y productos de calidad que garantizan resultados precisos con el máximo confort y cuidado para tu piel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trabajos Section -->
+    <section id="trabajos" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-pink-400 font-medium">NUESTROS TRABAJOS</span>
+                <h2 class="text-4xl font-bold mt-2 mb-4">Transformaciones Que Inspiraron</h2>
+                <div class="w-16 h-1 bg-pink-300 mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-gray-600">Descubre cómo nuestros tratamientos han ayudado a nuestros clientes a transformar su apariencia y bienestar.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Trabajo 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+                    <div class="relative">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1745601921/massaged-spa_rm2o0v.webp" alt="Tratamiento facial" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-pink-300 text-white px-3 py-1 rounded-full text-sm">Facial</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Rejuvenecimiento Facial Avanzado</h3>
+                        <p class="text-gray-600 mb-4">Combinación de técnicas manuales y productos naturales para restaurar la luminosidad y firmeza de la piel.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Duración: 90 min</span>
+                            <a href="#contacto" class="text-pink-300 hover:text-teal-800 font-medium text-sm">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trabajo 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+                    <div class="relative">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1745601922/woman-relaxing_kozdej.webp" alt="Masaje relajante" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-pink-300 text-white px-3 py-1 rounded-full text-sm">Masaje</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Terapia de sales marinas</h3>
+                        <p class="text-gray-600 mb-4">Ritual ancestral que combina el poder de las piedras volcánicas con aceites esenciales para liberar tensiones profundas.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Duración: 75 min</span>
+                            <a href="#contacto" class="text-pink-300 hover:text-teal-800 font-medium text-sm">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trabajo 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+                    <div class="relative">
+                        <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1745601920/care-patient_rpobr6.webp" alt="Tratamiento corporal" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-pink-300 text-white px-3 py-1 rounded-full text-sm">Corporal</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-lg mb-2">Masajes descontruturantes</h3>
+                        <p class="text-gray-600 mb-4">Poderoso tratamiento que elimina toxinas, reduce la retención de líquidos y mejora la textura de la piel.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-500">Duración: 120 min</span>
+                            <a href="#contacto" class="text-pink-300 hover:text-teal-800 font-medium text-sm">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+       <!--     <div class="mt-12 text-center">
+                <a href="#servicios" class="inline-flex items-center px-6 py-3 border border-pink-300 text-pink-300 bg-white rounded-lg hover:bg-teal-50 transition duration-300">
+                    Ver todos los servicios
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+            </div>
+        -->
+        </div>
+    </section>
+
+
+        <!-- Banner 2 -->
+    <section class="relative">
+        <div class="bg-cover bg-center bg-fixed py-24" style="background-image: url('https://res.cloudinary.com/dliredzt9/image/upload/v1745078350/movil-spa_xyi7tp.jpg');">
+            <div class="absolute inset-0 bg-pink-400 opacity-70"></div>
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">"La belleza exterior comienza con el bienestar interior"</h2>
+                <p class="text-xl text-white opacity-90 max-w-2xl mx-auto">Dedica tiempo a nutrir tu cuerpo y mente, y verás florecer tu verdadera esencia.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Staff Section -->
+    <section id="staff" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-pink-400 font-medium">NUESTRO EQUIPO</span>
+                <h2 class="text-4xl font-bold mt-2 mb-4">Terapeutas Expertos</h2>
+                <div class="w-16 h-1 bg-pink-300 mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-gray-600">Conoce a los profesionales dedicados a proporcionarte la mejor experiencia de bienestar.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Staff 1 -->
+                <div>
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744936983/staff1_vuyea6.png" alt="Sara Martínez" class="w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Sara Martínez</h3>
+                        <p class="text-pink-300 mb-3">Directora y Terapeuta Principal</p>
+                        <p class="text-gray-600 mb-4">Con más de 15 años de experiencia, Sara es especialista en técnicas holísticas y masajes terapéuticos avanzados.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-teal-600">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-teal-600">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Staff 2 -->
+                <div>
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744936984/staff2_lduj51.png" alt="Carlos Mendoza" class="w-full  object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Carlos Mendoza</h3>
+                        <p class="text-pink-300 mb-3">Especialista en Masaje Terapéutico</p>
+                        <p class="text-gray-600 mb-4">Formado en técnicas orientales y occidentales, Carlos se especializa en tratamientos para aliviar dolores crónicos y mejorar la movilidad.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-teal-600">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-teal-600">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Staff 3 -->
+                <div>
+                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1744936984/staff3_g4j6m4.png" alt="Elena Torres" class="w-full object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">Elena Torres</h3>
+                        <p class="text-pink-300 mb-3">Esteticista y Terapeuta Facial</p>
+                        <p class="text-gray-600 mb-4">Experta en tratamientos faciales rejuvenecedores y técnicas anti-edad utilizando ingredientes orgánicos y naturales.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-teal-600">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-teal-600">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <!-- Tienda -->
+    <section class="relative bg-pink-400">
+        <div class="py-16">
+            <div class="container mx-auto px-6 relative z-10 text-center">
+             
+                                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">CONOCE NUESTRA</h2>
+                <a href="#contacto" class="bg-white text-pink-500 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition duration-300 mt-12">Tienda</a>
+            </div>
+        </div>
+    </section>
+
+    
+     <!-- Testimonios Section -->
+    <section id="testimonios" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-pink-400 font-medium">TESTIMONIOS</span>
+                <h2 class="text-4xl font-bold mt-2 mb-4">Lo Que Dicen Nuestros Clientes</h2>
+                <div class="w-16 h-1 bg-pink-300 mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-gray-600">Descubre las experiencias de quienes han confiado en nosotros para su bienestar.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonio 1 -->
+                <div class="testimonial-card bg-gray-50 p-8 rounded-xl shadow-sm">
+                    <div class="flex justify-center mb-6">
+                        <div class="text-pink-400">
+                            <i class="fas fa-quote-left text-4xl"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 text-center italic">"La experiencia en Serene Spa fue transformadora. El masaje terapéutico no solo alivió mi dolor crónico de espalda, sino que me proporcionó una sensación de bienestar que hacía tiempo no sentía."</p>
+                    <div class="flex justify-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="font-bold">Lucía Fernández</h4>
+                        <p class="text-sm text-gray-500">Cliente desde 2019</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonio 2 -->
+                <div class="testimonial-card bg-gray-50 p-8 rounded-xl shadow-sm">
+                    <div class="flex justify-center mb-6">
+                        <div class="text-pink-400">
+                            <i class="fas fa-quote-left text-4xl"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 text-center italic">"Como ejecutivo con altos niveles de estrés, los tratamientos en Serene Spa se han convertido en mi refugio mensual. El ambiente, la atención personalizada y los resultados son simplemente excepcionales."</p>
+                    <div class="flex justify-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="font-bold">Roberto Sánchez</h4>
+                        <p class="text-sm text-gray-500">Cliente desde 2020</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonio 3 -->
+                <div class="testimonial-card bg-gray-50 p-8 rounded-xl shadow-sm">
+                    <div class="flex justify-center mb-6">
+                        <div class="text-pink-400">
+                            <i class="fas fa-quote-left text-4xl"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 text-center italic">"Los tratamientos faciales son increíbles. Mi piel nunca había lucido tan radiante y saludable. El enfoque holístico y el uso de productos orgánicos marcan una gran diferencia."</p>
+                    <div class="flex justify-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="font-bold">Ana Martín</h4>
+                        <p class="text-sm text-gray-500">Cliente desde 2021</p>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Google Reviews -->
+            <div class="mt-16 text-center">
+                <h3 class="text-2xl font-bold mb-8">Reseñas de Google</h3>
+                <div class="bg-white shadow-md rounded-lg p-6 max-w-2xl mx-auto">
+                    <div class="flex items-center justify-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/91.jpg" alt="Google logo" class="w-8 h-8 mr-2 rounded-full">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600">4.8/5 basado en 127 reseñas</span>
+                    </div>
+                    <a href="#" class="text-pink-300 hover:text-teal-800 font-medium">Ver todas las reseñas en Google</a>
+                </div>
+            </div>
+
+            <!-- testimonios slider -->
+            
+                <div class="slider mt-8">
+                <div class="slides">
+                    <!-- Testimonio 1 -->
+                    <div class="slide flex flex-col items-center gap-4 sm:px-4 md:gap-6 lg:px-8">
+                        <div class="text-center text-pink-700">“Este es un texto de ejemplo para mostrar el servicio.”</div>
+                        <div class="flex flex-col items-center gap-2 sm:flex-row md:gap-3">
+                            <div class="h-12 w-12 overflow-hidden rounded-full bg-gray-100 shadow-lg md:h-14 md:w-14">
+                                <img src="https://randomuser.me/api/portraits/women/31.jpg" loading="lazy" alt="Testimonio 1" class="h-full w-full object-cover object-center" />
+                            </div>
+                            <div>
+                                <div class="text-center text-sm font-bold text-rose-500 sm:text-left md:text-base">John McCulling</div>
+                                <p class="text-center text-sm text-rose-500 sm:text-left md:text-sm">CEO / Datadrift</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonio 2 -->
+                    <div class="slide flex flex-col items-center gap-4 sm:px-4 md:gap-6 lg:px-8">
+                        <div class="text-center text-pink-700">“Otro texto de testimonio para mostrar el servicio.”</div>
+                        <div class="flex flex-col items-center gap-2 sm:flex-row md:gap-3">
+                            <div class="h-12 w-12 overflow-hidden rounded-full bg-gray-100 shadow-lg md:h-14 md:w-14">
+                                <img src="https://randomuser.me/api/portraits/women/84.jpg" loading="lazy" alt="Testimonio 2" class="h-full w-full object-cover object-center" />
+                            </div>
+                            <div>
+                                <div class="text-center text-sm font-bold text-rose-500 sm:text-left md:text-base">Kate Berg</div>
+                                <p class="text-center text-sm text-rose-500 sm:text-left md:text-sm">CFO / Dashdash</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonio 3 -->
+                    <div class="slide flex flex-col items-center gap-4 sm:px-4 md:gap-6 lg:px-8">
+                        <div class="text-center text-pink-700">“Un testimonio más para completar la sección.”</div>
+                        <div class="flex flex-col items-center gap-2 sm:flex-row md:gap-3">
+                            <div class="h-12 w-12 overflow-hidden rounded-full bg-gray-100 shadow-lg md:h-14 md:w-14">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" loading="lazy" alt="Testimonio 3" class="h-full w-full object-cover object-center" />
+                            </div>
+                            <div>
+                                <div class="text-center text-sm font-bold text-rose-500 sm:text-left md:text-base">Carlos García</div>
+                                <p class="text-center text-sm text-rose-500 sm:text-left md:text-sm">Manager / Company</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+       <!-- Video Testimonials -->
+<section class="mt-16 px-6" id="testimonios-video">
+    <h3 class="text-2xl font-bold mb-8 text-center">Testimonios en Video</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Video 1 -->
+        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe title="Testimonio 1" src="https://player.vimeo.com/video/1082619277?h=011e019eed" width="640" height="360" frameborder="0" allowfullscreen class="w-full h-full"></iframe>
+            </div>
+            <div class="p-4">
+                <h4 class="font-bold text-lg">Experiencia de regeneración total</h4>
+                <p class="text-sm text-gray-600">María comparte su experiencia con nuestro ritual de día completo.</p>
+            </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe title="Testimonio 2" src="https://player.vimeo.com/video/1082619277?h=011e019eed" width="640" height="360" frameborder="0" allowfullscreen class="w-full h-full"></iframe>
+            </div>
+            <div class="p-4">
+                <h4 class="font-bold text-lg">Resultado de tratamientos faciales</h4>
+                <p class="text-sm text-gray-600">Jorge documenta la transformación de su piel en 3 meses.</p>
+            </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
+            <div class="aspect-w-16 aspect-h-9">
+                <iframe title="Testimonio 3" src="https://player.vimeo.com/video/1082619277?h=011e019eed" width="640" height="360" frameborder="0" allowfullscreen class="w-full h-full"></iframe>
+            </div>
+            <div class="p-4">
+                <h4 class="font-bold text-lg">Recuperación de lesión deportiva</h4>
+                <p class="text-sm text-gray-600">Pedro habla sobre nuestros masajes terapéuticos especializados.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        </div>
+    </section>
+
+  <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-pink-400 font-medium">PREGUNTAS FRECUENTES</span>
+                <h2 class="text-4xl font-bold mt-2 mb-4">Resolvemos Tus Dudas</h2>
+                <div class="w-16 h-1 bg-pink-300 mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto text-gray-600">Encuentra respuestas a las preguntas más comunes sobre nuestros servicios y tratamientos.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto" x-data="{selected:1}">
+                <div class="mb-4">
+                    <div class="border border-gray-200 rounded-lg">
+                        <button @click="selected !== 1 ? selected = 1 : selected = null" class="flex justify-between items-center w-full p-6 text-left">
+                            <span class="font-semibold">¿Cómo debo prepararme para mi visita al spa?</span>
+                            <svg class="w-6 h-6 text-teal-600" :class="{'transform rotate-180': selected == 1}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div x-show="selected == 1" class="px-6 pb-6 text-gray-600" style="display: none;">
+                            <p>Recomendamos llegar 15 minutos antes de tu cita para completar el formulario de consulta y relajarte antes del tratamiento. Te sugerimos evitar comidas pesadas y alcohol antes de tu visita, y mantener una buena hidratación. Para masajes y tratamientos corporales, es mejor ducharse previamente. Trae ropa cómoda para después del tratamiento.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <div class="border border-gray-200 rounded-lg">
+                        <button @click="selected !== 2 ? selected = 2 : selected = null" class="flex justify-between items-center w-full p-6 text-left">
+                            <span class="font-semibold">¿Qué debo comunicar a mi terapeuta antes del tratamiento?</span>
+                            <svg class="w-6 h-6 text-teal-600" :class="{'transform rotate-180': selected == 2}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div x-show="selected == 2" class="px-6 pb-6 text-gray-600" style="display: none;">
+                            <p>Es importante informar sobre cualquier condición médica, lesiones, alergias, embarazo o medicamentos que estés tomando. También debes mencionar tus preferencias de presión en masajes, áreas que requieren atención especial o zonas que prefieres evitar. Toda la información se maneja con total confidencialidad.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <div class="border border-gray-200 rounded-lg">
+                      <button @click="selected !== 2 ? selected = 2 : selected = null" class="flex justify-between items-center w-full p-6 text-left">
+                            <span class="font-semibold">¿Qué debo comunicar a mi terapeuta antes del tratamiento?</span>
+                            <svg class="w-6 h-6 text-teal-600" :class="{'transform rotate-180': selected == 2}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                                 </div>
+                    </div>
+                </div>
+</div>
+</section>
+
+ 
+<!-- Call to Action Section for Booking -->
+<section id="reserva" class="py-20 bg-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-gradient-to-r from-rose-400 to-purple-500 rounded-2xl overflow-hidden shadow-xl">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
+        <div class="p-10 lg:p-16 flex flex-col justify-center">
+          <h2 class="text-4xl font-bold text-white mb-6">Reserva Tu Experiencia</h2>
+          <p class="text-lg text-white mb-8">Déjanos tus datos y te contactaremos para agendar tu cita en el horario que prefieras.</p>
+          <form id="form-reserva" class="space-y-4" onsubmit="enviarWhatsApp(); return false;">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <input id="nombre" type="text" placeholder="Nombre" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300">
+              </div>
+              <div>
+                <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300">
+              </div>
+            </div>
+            <div>
+              <input type="tel" placeholder="Teléfono" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300">
+            </div>
+            <div>
+              <select class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300">
+                <option value="" disabled selected>Selecciona un servicio</option>
+                <option value="limpieza-facial">Limpieza Facial Profunda</option>
+                <option value="anti-edad">Tratamiento Anti-Edad</option>
+                <option value="envolturas">Envolturas Corporales</option>
+                <option value="exfoliación">Exfoliación Corporal</option>
+                <option value="masaje-relajante">Masaje Relajante</option>
+                <option value="masaje-terapeutico">Masaje Terapéutico</option>
+              </select>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <input id="fecha" type="date" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300">
+              </div>
+              <div>
+                <input id="hora" type="time" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300">
+              </div>
+            </div>
+            <div>
+              <textarea placeholder="Mensaje o preferencia de horario" rows="3" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300"></textarea>
+            </div>
+            <div>
+              <button type="submit" class="w-full bg-white text-rose-500 hover:bg-gray-100 px-6 py-3 rounded-lg font-medium transition duration-300 shadow animate-pulse">Enviar por WhatsApp</button>
+            </div>
+          </form>
+        </div>
+        <div class="hidden lg:block relative" data-aos="fade-left">
+          <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1745601919/cleaning-face_c8s5n2.webp" alt="SpaBelle ambiance" class="absolute inset-0 h-full w-full object-cover">
+        </div>
+      </div>
+    </div>
+</div>
+</section>
+<!-- Sección: Mapa + Dirección y Horarios -->
+<section class="text-gray-600 body-font bg-white">
+  <div class="container px-5 py-16 mx-auto">
+    <div class="flex flex-col md:flex-row md:space-x-8">
+
+      <!-- Columna 1: Mapa -->
+      <div class="md:w-1/2 w-full h-96 rounded-lg overflow-hidden relative mb-8 md:mb-0">
+        <iframe
+          width="100%"
+          height="100%"
+          class="absolute inset-0"
+          frameborder="0"
+          title="Mapa"
+          marginheight="0"
+          marginwidth="0"
+          scrolling="no"
+          src="https://maps.google.com/maps?width=100%&height=600&hl=es&q=%C4%B0zmir+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+          style="filter: grayscale(1) contrast(1.3) opacity(0.9);">
+        </iframe>
+      </div>
+
+      <!-- Columna 2: Contacto -->
+      <div class="md:w-1/2 w-full bg-gray-100 p-8 rounded-lg shadow-md">
+        <!-- Dirección -->
+        <div class="mb-6">
+          <h2 class="text-sm font-semibold text-gray-900 tracking-widest">DIRECCIÓN</h2>
+          <p class="mt-2 text-gray-700">Av. Siempre Viva 742, Springfield, USA</p>
+        </div>
+
+        <!-- Email y Teléfono -->
+        <div class="mb-6">
+          <h2 class="text-sm font-semibold text-gray-900 tracking-widest">EMAIL</h2>
+          <a href="mailto:info@ejemplo.com" class="text-indigo-500 mt-1 block">info@ejemplo.com</a>
+
+          <h2 class="text-sm font-semibold text-gray-900 tracking-widest mt-4">TELÉFONO</h2>
+          <p class="text-gray-700 mt-1">+54 9 11 1234-5678</p>
+        </div>
+
+        <!-- Horarios -->
+        <div>
+          <h2 class="text-sm font-semibold text-gray-900 tracking-widest">HORARIOS</h2>
+          <ul class="mt-2 text-gray-700 space-y-1 text-sm">
+            <li>Lunes a Viernes: 10:00 - 19:00</li>
+            <li>Sábados: 10:00 - 15:00</li>
+            <li>Domingos: Cerrado</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<div class="bg-gray-900">
+    <footer class="mx-auto max-w-screen-2xl px-4 md:px-8">
+      <div class="mb-16 grid grid-cols-2 gap-12 pt-10 md:grid-cols-4 lg:grid-cols-6 lg:gap-8 lg:pt-12">
+        <div class="col-span-full lg:col-span-2">
+          <!-- logo - start -->
+          <div class="mb-4 lg:-mt-2">
+                 <a href="#inicio" class="flex items-center">
+                                <span class="text-3xl font-serif">
+                                    <img src="https://res.cloudinary.com/dliredzt9/image/upload/v1746410381/logo-spa_y7aza1.png" alt="logo" class="h-12 w-12">
+                                </span>
+                                <span class="ml-1 text-sm uppercase tracking-wider mt-1 text-pink-400">Spa & Wellness</span>
+                            </a>
+          </div>
+          <!-- logo - end -->
+  
+          <p class="mb-6 text-gray-400 sm:pr-8">Descubre un santuario de paz y rejuvenecimiento. Nuestros tratamientos personalizados te llevarán a un viaje de restauración total.</p>
+  
+          <!-- social - start -->
+          <div class="flex gap-4">
+            <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+              <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+  
+      
+            <a href="#" target="_blank" class="text-gray-400 transition duration-100 hover:text-gray-500 active:text-gray-600">
+              <svg class="h-5 w-5" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
+  
+          </div>
+          <!-- social - end -->
+        </div>
+  
+        <!-- nav - start -->
+        <div>
+          <div class="mb-4 font-bold uppercase tracking-widest text-gray-100">Menú</div>
+  
+          <nav class="flex flex-col gap-4">
+            <div>
+              <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Nosotros</a>
+            </div>
+  
+            <div>
+              <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Servicios</a>
+            </div>
+  
+            <div>
+              <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Galería</a>
+            </div>
+  
+   
+          </nav>
+        </div>
+        <!-- nav - end -->
+  
+        <!-- nav - start -->
+        <div>
+          <div class="mb-4 font-bold uppercase tracking-widest text-gray-100">Spa</div>
+  
+          <nav class="flex flex-col gap-4">
+            <div>
+              <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Staff</a>
+            </div>
+  
+            <div>
+              <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Turnos</a>
+            </div>
+  
+            <div>
+              <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Testimonios</a>
+            </div>
+  
+  
+          </nav>
+        </div>
+        <!-- nav - end -->
+  
+        <!-- nav - start -->
+        <div>
+          <div class="mb-4 font-bold uppercase tracking-widest text-gray-100">Suporte</div>
+  
+          <nav class="flex flex-col gap-4">
+            <div>
+              <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Contacto</a>
+            </div>
+  
+            <div>
+              <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">FAQ</a>
+            </div>
+  
+            <div>
+              <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Maps</a>
+            </div>
+  
+          
+          </nav>
+        </div>
+        <!-- nav - end -->
+  
+        <!-- nav - start -->
+        <div>
+          <div class="mb-4 font-bold uppercase tracking-widest text-gray-100">Legal</div>
+  
+          <nav class="flex flex-col gap-4">
+            <div>
+              <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Condiciones de servicio</a>
+            </div>
+  
+            <div>
+              <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Política de Privacidad</a>
+            </div>
+  
+            <div>
+              <a href="#" class="text-gray-400 transition duration-100 hover:text-indigo-500 active:text-indigo-600">Configuración de cookies</a>
+            </div>
+          </nav>
+        </div>
+        <!-- nav - end -->
+      </div>
+  
+      <div class="border-t border-gray-800 py-8 text-center text-sm text-gray-400">© 2025 - Spa & Estitica. <i>by design: seremprende.lat</i></div>
+    </footer>
+  </div>
+  
+</body>
+</html>
